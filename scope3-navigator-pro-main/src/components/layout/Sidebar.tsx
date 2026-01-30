@@ -75,7 +75,7 @@ export function Sidebar() {
                 className="overflow-hidden"
               >
                 <span className="text-lg font-semibold text-sidebar-foreground whitespace-nowrap">
-                  CarbonIQ
+                  Green Scope
                 </span>
               </motion.div>
             )}
