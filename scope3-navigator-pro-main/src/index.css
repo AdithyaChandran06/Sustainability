@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Carbon Intelligence Platform Design System
+   A sophisticated, enterprise-grade design focused on sustainability and data clarity
+*/
+
+@layer base {
+  :root {
+    /* Core backgrounds - Clean, professional whites with subtle warmth */
+    --background: 150 10% 98%;
+    --foreground: 160 30% 10%;
+
+    /* Cards - Elevated surfaces with subtle glass effect */
+    --card: 0 0% 100%;
+    --card-foreground: 160 30% 10%;
+
+    /* Popover surfaces */
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 30% 10%;
+
+    /* Primary - Deep forest green (brand identity) */
+    --primary: 158 64% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft sage for secondary actions */
+    --secondary: 150 20% 94%;
+    --secondary-foreground: 158 64% 20%;
+
+    /* Muted - Subtle backgrounds for less emphasis */
+    --muted: 150 15% 95%;
+    --muted-foreground: 160 10% 45%;
+
+    /* Accent - Teal for interactive elements */
+    --accent: 168 76% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive - For warnings and high-emission alerts */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Carbon-specific semantic colors */
+    --carbon-low: 152 69% 40%;
+    --carbon-medium: 43 96% 56%;
+    --carbon-high: 25 95% 53%;
+    --carbon-critical: 0 72% 51%;
+
+    /* Chart colors */
+    --chart-1: 158 64% 35%;
+    --chart-2: 168 76% 42%;
+    --chart-3: 43 96% 56%;
+    --chart-4: 25 95% 53%;
+    --chart-5: 0 72% 51%;
+    --chart-6: 199 89% 48%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(158 64% 20%) 0%, hsl(168 76% 36%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(150 10% 99%) 0%, hsl(150 15% 95%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(168 76% 36% / 0.15) 0%, transparent 70%);
+
+    /* Borders and inputs */
+    --border: 150 20% 90%;
+    --input: 150 20% 90%;
+    --ring: 158 64% 20%;
+
+    --radius: 0.625rem;
+
+    /* Sidebar - Darker, sophisticated navigation */
+    --sidebar-background: 158 40% 12%;
+    --sidebar-foreground: 150 20% 90%;
+    --sidebar-primary: 168 76% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 158 30% 18%;
+    --sidebar-accent-foreground: 150 20% 90%;
+    --sidebar-border: 158 30% 18%;
+    --sidebar-ring: 168 76% 50%;
+    --sidebar-muted: 150 10% 60%;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(160 30% 10% / 0.03);
+    --shadow-md: 0 4px 6px -1px hsl(160 30% 10% / 0.05), 0 2px 4px -2px hsl(160 30% 10% / 0.03);
+    --shadow-lg: 0 10px 15px -3px hsl(160 30% 10% / 0.05), 0 4px 6px -4px hsl(160 30% 10% / 0.03);
+    --shadow-glow: 0 0 30px -5px hsl(168 76% 36% / 0.2);
+  }
+
+  .dark {
+    --background: 160 20% 8%;
+    --foreground: 150 15% 95%;
+
+    --card: 160 20% 10%;
+    --card-foreground: 150 15% 95%;
+
+    --popover: 160 20% 10%;
+    --popover-foreground: 150 15% 95%;
+
+    --primary: 168 76% 50%;
+    --primary-foreground: 160 20% 8%;
+
+    --secondary: 158 30% 15%;
+    --secondary-foreground: 150 15% 95%;
+
+    --muted: 158 25% 15%;
+    --muted-foreground: 150 10% 60%;
+
+    --accent: 168 76% 45%;
+    --accent-foreground: 160 20% 8%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 158 25% 18%;
+    --input: 158 25% 18%;
+    --ring: 168 76% 50%;
+
+    --sidebar-background: 160 25% 6%;
+    --sidebar-foreground: 150 15% 90%;
+    --sidebar-primary: 168 76% 50%;
+    --sidebar-primary-foreground: 160 20% 8%;
+    --sidebar-accent: 158 25% 12%;
+    --sidebar-accent-foreground: 150 15% 90%;
+    --sidebar-border: 158 25% 12%;
+    --sidebar-ring: 168 76% 50%;
+    --sidebar-muted: 150 10% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Metric cards with glow on hover */
+  .metric-card {
+    @apply relative overflow-hidden rounded-xl bg-card border border-border/50 p-6 transition-all duration-300;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .metric-card:hover {
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    @apply border-primary/20;
+  }
+
+  /* Status badges */
+  .status-low {
+    @apply bg-carbon-low/10 text-carbon-low border-carbon-low/20;
+  }
+
+  .status-medium {
+    @apply bg-carbon-medium/10 text-carbon-medium border-carbon-medium/20;
+  }
+
+  .status-high {
+    @apply bg-carbon-high/10 text-carbon-high border-carbon-high/20;
+  }
+
+  .status-critical {
+    @apply bg-carbon-critical/10 text-carbon-critical border-carbon-critical/20;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  /* Data table rows */
+  .data-row {
+    @apply border-b border-border/50 transition-colors hover:bg-muted/50;
+  }
+
+  /* Sidebar navigation item */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sidebar-foreground/80 transition-all duration-200;
+  }
+
+  .nav-item:hover {
+    @apply bg-sidebar-accent text-sidebar-foreground;
+  }
+
+  .nav-item.active {
+    @apply bg-sidebar-primary/10 text-sidebar-primary font-medium;
+  }
+
+  /* Interactive chart container */
+  .chart-container {
+    @apply rounded-xl bg-card border border-border/50 p-6;
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Pulse animation for live indicators */
+  .pulse-dot {
+    @apply relative;
+  }
+
+  .pulse-dot::after {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-current animate-ping opacity-75;
+  }
+}
